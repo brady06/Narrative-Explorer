@@ -2,7 +2,7 @@ import praw
 from dotenv import load_dotenv
 import os
 import time
-from typing import List
+from typing import List, Dict
 
 # Load variables from .env file
 load_dotenv()
@@ -13,7 +13,7 @@ reddit = praw.Reddit(
     user_agent=os.getenv("REDDIT_USER_AGENT")
 )
 
-def get_reddit_posts(company_name, subreddit_list="stocks+investing+wallstreetbets", limit = 50, sort = "top", time_filter = "week"):
+def get_reddit_posts(company_name, limit = 50, subreddit_list="stocks+investing+wallstreetbets", sort = "top", time_filter = "week") -> List[Dict]:
 
     # gather all results
     results = reddit.subreddit(subreddit_list).search(
@@ -30,6 +30,7 @@ def get_reddit_posts(company_name, subreddit_list="stocks+investing+wallstreetbe
         full_text = f"{post.title}\n\n{body}".strip()
 
         posts.append({
+            "source": "Reddit",
             "id": post.id,
             "title": post.title,
             "body": post.selftext,
