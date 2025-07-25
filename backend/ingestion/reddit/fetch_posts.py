@@ -47,7 +47,7 @@ def get_reddit_posts(company_name, limit = 50, subreddit_list="stocks+investing+
         })
 
         # to avoid hitting API call limit
-        time.sleep(1)
+        # time.sleep(1)
 
     return posts
 
