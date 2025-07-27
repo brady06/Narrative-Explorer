@@ -31,6 +31,7 @@ def get_reddit_posts(company_name, limit = 50, subreddit_list="stocks+investing+
 
         posts.append({
             "source": "Reddit",
+            "company_name": company_name,
             "id": post.id,
             "title": post.title,
             "body": post.selftext,
