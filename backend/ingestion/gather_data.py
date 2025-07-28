@@ -5,7 +5,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from typing import List, Dict
 from backend.ingestion.reddit.fetch_posts import get_reddit_posts
 
-def fetch_data(query: str, max_time: str = "week", max_reddit_posts: int = 50, max_twitter_posts: int = 50, max_news_posts: int = 50) -> List[Dict]:
+def fetch_data(query: str, max_time: str = "week", max_reddit_posts: int = 20, max_twitter_posts: int = 20, max_news_posts: int = 20) -> List[Dict]:
 
     # Call all individual methods to gather List of Dict
 

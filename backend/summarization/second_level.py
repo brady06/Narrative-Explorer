@@ -13,7 +13,7 @@ sys.path.append(parent_dir)
 with open(os.path.join(parent_dir, "prompts", "second_level_prompt.txt"), "r") as f:
     prompt_template = f.read()
 
-def second_level_summary(data: List[str]):
+def second_level_summary(data: List[str]) -> List[str]:
     chunk = "\n\n".join(data)
 
     response = openai.ChatCompletion.create(

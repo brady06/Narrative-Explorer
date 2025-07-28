@@ -15,6 +15,7 @@ You will be given a list of narrative summaries from individual social meida pos
 
 Narrative 1: [summary sentence]
 > "[quote or paraphrased summary from earlier summaries]"
+> "[second quote or paraphrased summary from earlier summaries]"
 ----------
 Narrative 2: [summary sentence]
 > "[quote or paraphrased summary]"
