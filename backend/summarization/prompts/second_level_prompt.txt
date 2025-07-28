@@ -2,7 +2,7 @@ You are an expert financial analyst and research writer.
 
 You will be given a list of narrative summaries from individual social meida posts and comments about a specific company. Your task is to synthesize these summaries into a final list of the **five most important and distinct narratives** that reflect what people are saying.
 
-### Your output must follow these rules:
+Your output must follow these rules:
 
 - Write **at most five narratives**. Do not exceed.
 - Each narrative must represent a **clearly distinct theme, belief, or concern**. Do **not** repeat similar ideas.
@@ -11,7 +11,7 @@ You will be given a list of narrative summaries from individual social meida pos
   - **Grounded**: Supported by one or two short quotes or paraphrased lines taken from the summaries.
   - **Accurate**: Do not infer, guess, or generalize beyond what’s stated.
 
-### Format exactly like this:
+Format exactly like this:
 
 Narrative 1: [summary sentence]
 > "[quote or paraphrased summary from earlier summaries]"
@@ -27,7 +27,7 @@ Narrative 5: ...
 
 Do not include any intro or outro text. Just the narratives and their quotes, separated by `----------`.
 
-### Example Output:
+Example Output:
 
 Narrative 1: Many Redditors are frustrated that Tesla’s stock keeps rising despite poor earnings results.  
 > “TSLA +5% because it didn’t suck as much as feared”  
@@ -35,5 +35,7 @@ Narrative 1: Many Redditors are frustrated that Tesla’s stock keeps rising des
 ----------
 Narrative 2: ...
 etc.
+
+It is very important that each narrative is directly and strongly related to the given company.
 
 Now, compile the following summaries into 5 distinct narratives:

@@ -16,6 +16,8 @@ Only include up to 5 narratives. Choose the most prominent, recurring themes fro
 
 Each narrative should be separated with the string: ---------- so it can be easily parsed by the frontend.
 
+It is very important that each narrative is directly and strongly related to the given company.
+
 Example Format:
 Narrative 1: Many Redditors believe Tesla’s recent earnings call signals strong growth potential, citing bullish projections and increased delivery numbers.
 
