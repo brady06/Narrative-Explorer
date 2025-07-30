@@ -14,7 +14,7 @@ def get_x_posts(company: str, time_filter: str = "week", limit: int = 20) -> Lis
     if max_age == 0:
         print("X POST AGE ERROR")
 
-    delta = datetime.timedelta(days = max_age)
+    delta = timedelta(days = max_age)
     start_date = datetime.now() - delta
     end_date = datetime.now()
     query = f"{company} since:{start_date} until:{end_date} lang:en"
