@@ -13,7 +13,7 @@ reddit = praw.Reddit(
     user_agent=os.getenv("REDDIT_USER_AGENT")
 )
 
-def get_reddit_posts(company_name, limit = 50, subreddit_list="stocks+investing+wallstreetbets", sort = "top", time_filter = "week") -> List[Dict]:
+def get_reddit_posts(company_name, limit = 20, subreddit_list="stocks+investing+wallstreetbets", sort = "top", time_filter = "week") -> List[Dict]:
 
     # gather all results
     results = reddit.subreddit(subreddit_list).search(
@@ -42,8 +42,6 @@ def get_reddit_posts(company_name, limit = 50, subreddit_list="stocks+investing+
             "num_comments": post.num_comments,
             "created_utc": post.created_utc,
             "url": f"https://www.reddit.com{post.permalink}",
-            "query": company_name,
-            "source": "reddit",
             "comments": get_comments(post.id, limit=20)
         })
 
