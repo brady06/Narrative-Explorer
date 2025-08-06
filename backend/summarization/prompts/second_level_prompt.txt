@@ -10,16 +10,18 @@ Your output must follow these rules:
   - **Clear**: Easy to understand, written in plain English.
   - **Grounded**: Supported by one or two short quotes or paraphrased lines taken from the summaries.
   - **Accurate**: Do not infer, guess, or generalize beyond what’s stated.
+- Each narrative should be supported by 1-3 quotes from earlier summaries.
+  - **Important**: The url at the end of each quote should be kept for traceability.
 
 Format exactly like this:
 
 Narrative 1: [summary sentence]
-> "[quote or paraphrased summary from earlier summaries]"
-> "[second quote or paraphrased summary from earlier summaries]"
+> "[quote from earlier summaries]" [quote post url]
+> "[second quote or paraphrased summary from earlier summaries]" [quote post url]
 ----------
 Narrative 2: [summary sentence]
-> "[quote or paraphrased summary]"
-----------
+> "[quote]" [quote post url]
+---------- 
 Narrative 3: ...
 ...
 Narrative 5: ...

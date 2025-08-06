@@ -22,8 +22,9 @@ def first_level_summary(data: List[Dict]):
         chunk = f"POST TITLE: {post['title']}\n\nBODY:\n{post['body']}\n\nCOMMENTS:\n{comments}"
 
         company_chunk = f"The company you are analysing today is {post['company_name']}"
+        url_chunk = f"Here is the post url to place after each quote: {post['url']}"
 
-        full_prompt = f"{company_chunk}\n\nReddit discussion chunk:\n\n{chunk}"
+        full_prompt = f"{company_chunk}\n\n{url_chunk}\n\n{post['source']} discussion chunk:\n\n{chunk}"
 
         response = openai.chat.completions.create(
             model="gpt-4o",
