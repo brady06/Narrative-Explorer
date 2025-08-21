@@ -3,6 +3,8 @@ from datetime import datetime, timedelta
 from apify_client import ApifyClient
 from dotenv import load_dotenv
 import os
+import requests
+from bs4 import BeautifulSoup
 
 load_dotenv()
 client = ApifyClient(os.getenv("APIFY_API_KEY"))
@@ -65,24 +67,48 @@ def get_google_news(company: str, time_filter: str = "week", limit: int = 10) ->
                 "source": "Google",
                 "company_name": company,
                 "title": post.get("title"),
-                "body": "[PLACEHOLDER]",
+                "body": parse_website_text(post["url"]),
                 "comments": "Not Applicable",
                 "url": post["url"]
             })
 
     return posts
 
+def parse_website_text(url: str) -> str:
+    response = requests.get(url, timeout=10)
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    # Tags we want to keep, in order
+    tags_to_extract = ["h1", "h2", "h3", "p"]
+
+    content_parts = []
+    for tag in soup.find_all(tags_to_extract):
+        text = tag.get_text(strip=True)
+        if not text:
+            continue
+
+        # Add markdown-style formatting so it's clear what's a header
+        if tag.name == "h1":
+            content_parts.append(f"# {text}")
+        elif tag.name == "h2":
+            content_parts.append(f"## {text}")
+        elif tag.name == "h3":
+            content_parts.append(f"### {text}")
+        else:  # paragraph
+            content_parts.append(text)
+
+    return "\n\n".join(content_parts)
 
 
 def main():
-    company = "TSLA"  # change ticker if needed
+    company = "AMZN"  # change ticker if needed
     posts = get_google_news(company, time_filter="week", limit=1)
 
     for i, post in enumerate(posts, start=1):
         print(f"Result {i}:")
         print(f"Title: {post.get('title')}")
         print(f"URL: {post.get('url')}")
-        # print(f"Snippet: {post.get('snippet')}")
+        print(f"Body: {post.get('body')}")
         print("-" * 50)
 
 
