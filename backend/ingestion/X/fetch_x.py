@@ -1,5 +1,4 @@
 from typing import List, Dict
-import snscrape.modules.twitter as sntwitter
 from datetime import datetime, timedelta
 from apify_client import ApifyClient
 from dotenv import load_dotenv
@@ -9,7 +8,7 @@ load_dotenv()
 client = ApifyClient(os.getenv("APIFY_API_KEY"))
 
 # Company should be stock ticker here
-def get_x_posts(company: str, time_filter: str = "week", limit: int = 20) -> List[Dict]:
+def get_x_posts(company: str, time_filter: str = "week", limit: int = 40) -> List[Dict]:
 
     # Create query
     max_age = 0
